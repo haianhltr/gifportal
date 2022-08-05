@@ -1,6 +1,6 @@
 [features]
 seeds = false
-[programs.localnet]
+[programs.devnet]
 gifportal_js = "Z3yPgytyD5vmiLwQSo5QQrfx6kKvrZeCt3yv92hsDDH"
 
 [registry]
