@@ -12,6 +12,12 @@ pub mod gifportal_js {
         base_account.total_gif = 0;
         Ok(())
     }
+
+    pub fn add_gif(ctx: Context<AddGif>) -> ProgramResult {
+        let base_account = &mut ctx.accounts.base_account;
+        base_account.total_gif += 1;
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
@@ -21,6 +27,13 @@ pub struct StartStuffOff<'info> {
     #[account(mut)]
     pub user: Signer<'info>,
     pub system_program: Program<'info,System>
+}
+
+#[derive(Accounts)]
+pub struct AddGif<'info>
+{
+    #[account(mut)]
+    pub base_account : Account<'info, BaseAccount>
 }
 
 
