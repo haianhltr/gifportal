@@ -20,14 +20,21 @@ const main = async() => {
   console.log("GIF count:", account.totalGif.toString());
 
 
-  await program.rpc.addGif({
+  await program.rpc.addGif("https://c.tenor.com/aYS4oWLajowAAAAd/playboi-carti.gif",{
     accounts: {
       baseAccount: baseAccount.publicKey,
-    }
+      user: provider.wallet.publicKey,
+    }, 
+
+
   })
 
   account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log("GIF count: ", account.totalGif.toString());
+  console.log("GIF List: ", account.gifList);
+  
+
+
 }
 
 const runMain = async() => {
